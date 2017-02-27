@@ -12,9 +12,11 @@ namespace TeduShop.Model.Models
     public class OrderDetail
     {
         [Key]
+        [Column(Order = 1)]
         public int OrderID { get; set; }
 
         [Key]
+        [Column(Order = 2)]
         public int ProductID { get; set; }
 
         public int Quantity { get; set; }
@@ -23,6 +25,6 @@ namespace TeduShop.Model.Models
         public virtual Order Order { get; set; }
 
         [ForeignKey("ProductID")]
-        public virtual ProductCategory ProductCategory { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

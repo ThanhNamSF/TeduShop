@@ -6,7 +6,33 @@ using System.Threading.Tasks;
 
 namespace TeduShop.Data.Infrastructure
 {
-    class Disposable
+    public class Disposable : IDisposable
     {
+        private bool isDisposed;
+
+        ~Disposable()
+        {
+            Dispose(false);
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        private void Dispose(bool dispoting)
+        {
+            if(!isDisposed && dispoting)
+            {
+                DisposeCore();
+            }
+            isDisposed = true;
+        }
+
+        protected virtual void DisposeCore()
+        {
+
+        }
     }
 }

@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace TeduShop.Data.Infrastructure
 {
-    class DbFactory
+    public class DbFactory : IDisposable, IDbFactory
     {
+        TeduShopDbContext dbContext;
+
+        public TeduShopDbContext Init()
+        {
+            return dbContext ?? (dbContext = new TeduShopDbContext());
+        }
+        public void Dispose()
+        {
+            if (dbContext != null)
+                dbContext.Dispose();
+        }
     }
 }
