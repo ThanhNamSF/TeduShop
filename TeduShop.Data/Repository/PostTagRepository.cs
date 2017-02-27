@@ -8,13 +8,14 @@ using TeduShop.Model.Models;
 
 namespace TeduShop.Data.Repository
 {
-    public interface IProductRepository : IReponsitory<Product>
+    public interface IPostTagRepository : IReponsitory<PostTag>
     {
 
     }
-    public class ProductRepository : RepositoryBase<Product>, IProductRepository
+
+    public class PostTagRepository : RepositoryBase<PostTag>, IPostTagRepository
     {
-        public ProductRepository(IDbFactory dbFactory) : base(dbFactory)
+        public PostTagRepository(IDbFactory dbFactory) : base(dbFactory)
         {
         }
     }

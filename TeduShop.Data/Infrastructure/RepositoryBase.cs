@@ -138,6 +138,12 @@ namespace TeduShop.Data.Infrastructure
         {
             throw new NotImplementedException();
         }
+
+        public virtual void Delete(int id)
+        {
+            var entity = dbSet.Find(id);
+            dbSet.Remove(entity);
+        }
         #endregion
     }
 }
